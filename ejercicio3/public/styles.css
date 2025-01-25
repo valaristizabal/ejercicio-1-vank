@@ -1,0 +1,81 @@
+/* Estilo general para el body */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fuente personalizada */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.6; /* Espaciado entre líneas */
+    text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333533; /* Fondo oscuro */
+  }
+  
+  /* Contenedor principal */
+  .container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Fuente personalizada */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.6; /* Espaciado entre líneas */
+    text-transform: capitalize; /* Capitaliza la primera letra de cada palabra */
+    width: 80%;
+    max-width: 600px;
+    background: #ffee02; /* Fondo amarillo */
+    padding: 20px;
+    border-radius: 35px 0px 35px 0px; /* Bordes redondeados */
+    -moz-border-radius: 35px 0px 35px 0px;
+    -webkit-border-radius: 35px 0px 35px 0px;
+    border: 2px solid #202020; /* Borde oscuro */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .header {
+    display: flex;
+    align-items: center; /* Centra el logo y título verticalmente */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+  }
+  
+  .header h1 {
+    margin: 0 0 0 10px; /* Espacio solo a la izquierda del título */
+    font-size: 1.8rem; /* Tamaño del título */
+  }
+  
+  .logo {
+    width: 150px; /* Ajusta el tamaño del logo */
+    height: auto; /* Mantiene las proporciones */
+  }
+  
+  /* Estilo para los textarea */
+  textarea {
+    display: block; /* Asegura que el textarea ocupe una línea completa */
+    margin: 10px auto 0; /* Espaciado superior y centrado horizontal */
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Asegura la misma fuente */
+    font-size: 16px; /* Tamaño de la fuente igual al del body */
+    font-weight: 400; /* Peso de la fuente igual al del body */
+    line-height: 1.6; /* Espaciado entre líneas igual al del body */
+  }
+  
+  /* Estilo para el botón */
+  button {
+    background: #202020; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 40%; /* Centra el botón */
+  }
+  
+  button:hover {
+    background: #D6D6D6; /* Fondo gris claro en hover */
+    color: black; /* Texto negro en hover */
+  }
+  

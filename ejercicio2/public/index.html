@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Medellín</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="thisisvank_logo.jpeg" alt="Logo de la página" class="logo">
+      <h1>Clima en Medellín</h1>
+    </div>
+    <div id="weather-info">
+      <p>Temperatura: <span id="temperature">Cargando...</span>°C</p>
+      <p>Descripción: <span id="description">Cargando...</span></p>
+      <p>Velocidad del Viento: <span id="wind_speed">Cargando...</span> km/h</p>
+      <p>Última actualización: <span id="last_update">Cargando...</span></p>
+    </div>
+    <button id="refresh-btn">Actualizar Clima</button>
+  </div>
+  <script>
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch('/api/clima');
+        const data = await response.json();
+
+        document.getElementById('temperature').innerText = data.temperature || 'N/A';
+        document.getElementById('description').innerText = data.description || 'N/A';
+        document.getElementById('wind_speed').innerText = data.wind_speed || 'N/A';
+        document.getElementById('last_update').innerText = data.last_update || 'N/A';
+      } catch (error) {
+        alert("Error al obtener el clima. Inténtalo nuevamente.");
+      }
+    };
+
+    document.getElementById('refresh-btn').addEventListener('click', fetchWeather);
+
+    // Cargar el clima al inicio
+    fetchWeather();
+  </script>
+</body>
+</html>

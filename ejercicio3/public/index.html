@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Archivos</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Correcto, sin carpeta CSS ahora -->
+  <script src="app.js"></script> <!-- Correcto, sin carpeta JS ahora -->
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="thisisvank_logo.jpeg" alt="Logo de la página" class="logo">
+      <h1>Crear Archivos de Texto</h1>
+    </div>
+    <form id="file-form">
+      <label for="cantidad">Cantidad de Archivos:</label>
+      <input type="number" id="cantidad" name="cantidad" min="1" required><br><br>
+      
+      <label for="contenido">Contenido del Archivo:</label>
+      <textarea id="contenido" name="contenido" required></textarea><br><br>
+      
+      <button type="submit">Crear Archivos</button>
+    </form>
+    <div id="mensaje"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('file-form');
+    const mensaje = document.getElementById('mensaje');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const cantidad = document.getElementById('cantidad').value;
+      const contenido = document.getElementById('contenido').value;
+
+      try {
+        const response = await fetch('/crear-archivos', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ cantidad, contenido }),
+        });
+
+        const data = await response.json();
+        if (data.mensaje) {
+          mensaje.textContent = data.mensaje;
+          mensaje.style.color = 'green';
+        } else {
+          mensaje.textContent = 'Hubo un error al crear los archivos.';
+          mensaje.style.color = 'red';
+        }
+      } catch (error) {
+        mensaje.textContent = 'Error en la comunicación con el servidor.';
+        mensaje.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
