@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Summarizer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="thisisvank_logo.jpeg" alt="Logo de la página" class="logo">
+
+      <h1>Text Summarizer</h1>
+      
+    </div>
+    <textarea id="inputText" placeholder="Enter text to summarize..." rows="10"></textarea>
+    <button id="summarizeBtn">Summarize</button>
+    <h3>Summary:</h3>
+    <div id="summary"></div>
+  </div>
+  
+  <script>
+    document.getElementById("summarizeBtn").addEventListener("click", async () => {
+      const inputText = document.getElementById("inputText").value;
+      const response = await fetch('/summarize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: inputText })
+      });
+      const data = await response.json();
+      document.getElementById("summary").innerText = data.summary || "Error generating summary.";
+    });
+  </script>
+</body>
+</html>
